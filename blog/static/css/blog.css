@@ -1,7 +1,7 @@
 h1 a, h2 a {
     color: green;
     text-decoration: none;
-    font-family: 'Lobster';
+    /* font-family: 'Lobster'; */
 }
 
 body {
@@ -24,12 +24,12 @@ body {
     text-decoration: none;
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4 {
     font-family: 'Lobster', cursive;
-}
+} */
 
 .date {
     float: right;
