@@ -2,3 +2,8 @@ h1 a, h2 a {
     color: green;
     text-decoration: none;
 }
+
+
+body {
+    padding-left: 50px;
+}
