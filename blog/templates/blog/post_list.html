@@ -10,14 +10,15 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext">
     </head>
     <body>
-        <header>
+        <header class="page-header">
+            <div class="container">
             <h1><a href="/">Django Girls Blog</a></h1>
-            
+            </div>
         </header>
 
         {% for post in posts %}
-            <article>
-                <time>published: {{ post.published_date }}</time>
+            <article class="post">
+                <time>更新日 published: {{ post.published_date }}</time>
                 <h2><a href="">{{ post.title }}</a></h2>
                 <p>{{ post.text|linebreaksbr }}</p>
             </article>
