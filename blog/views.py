@@ -17,7 +17,7 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)  # request.FILES
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -28,10 +28,11 @@ def post_new(request):
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
+# 画像の編集機能を追加(request.FILES を渡すように修正)
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.Files, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
