@@ -20,6 +20,16 @@
             <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">
         {% endif %}
 
+        <!-- ここからタグ表示を追加 -->
+         {% if post.tags.all %}
+            <div class="post-tags">
+                Tags:
+                {% for tag in post.tags.all %}
+                    <a href="{% url 'post_list' %}?tag={{ tag.name }}" class="tag-link">#{{ tag.name }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+                
     </article>
 {% endblock %}
 

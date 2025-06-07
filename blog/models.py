@@ -15,6 +15,9 @@ class Post(models.Model):
     # 画像フィールドを追加
     image = models.ImageField(
         upload_to='post_images/', blank=True, null=True)
+    # ここにタグフィールドを追加（多対多リレーションシップ）
+    tags = models.ManyToManyField(
+        'Tag', blank=True, related_name='posts')
     
     def publish(self):
         self.published_date = timezone.now()
@@ -22,4 +25,10 @@ class Post(models.Model):
         
     def __str__(self):
         return self.title
+    
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    
+    def __str__(self):
+        return self.name
     
